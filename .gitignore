@@ -1,0 +1,10 @@
+HELP.md
+target
+build
+.gradle
+gradle
+
+.idea
+*.iws
+*.iml
+*.ipr
