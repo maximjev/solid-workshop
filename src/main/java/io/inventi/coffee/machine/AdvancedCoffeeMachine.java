@@ -1,13 +1,10 @@
 package io.inventi.coffee.machine;
 
-import io.inventi.coffee.drinks.Cappuccino;
 import io.inventi.coffee.drinks.Drink;
-import io.inventi.coffee.drinks.Espresso;
-import io.inventi.coffee.drinks.Latte;
-import io.inventi.coffee.drinks.FlatWhite;
 import io.inventi.coffee.exception.OutOfResourceException;
 import io.inventi.coffee.resources.Coffee;
 import io.inventi.coffee.exception.UnsupportedCoffeeOperationException;
+import io.inventi.coffee.resources.Milk;
 import io.inventi.coffee.storage.MilkStorage;
 import io.inventi.coffee.drinks.CoffeeType;
 
@@ -35,36 +32,36 @@ public class AdvancedCoffeeMachine implements CoffeeMachine {
         }
     }
 
-    private Espresso makeEspresso() {
+    private Drink makeEspresso() {
         if (this.coffeeAmount - 25 < 0) {
             throw new OutOfResourceException("out of coffee");
         }
         coffeeAmount -= 25;
-        return new Espresso(new Coffee(25));
+        return new Drink(CoffeeType.ESPRESSO, new Coffee(25), new Milk(0));
     }
 
-    private Cappuccino makeCappuccino() {
+    private Drink makeCappuccino() {
         if (this.coffeeAmount - 25 < 0) {
             throw new OutOfResourceException("out of coffee");
         }
         coffeeAmount -= 25;
-        return new Cappuccino(new Coffee(25), milkStorage.getMilk(85));
+        return new Drink(CoffeeType.CAPPUCCINO, new Coffee(25), milkStorage.getMilk(85));
     }
 
-    private Latte makeLatte() {
+    private Drink makeLatte() {
         if (this.coffeeAmount - 25 < 0) {
             throw new OutOfResourceException("out of coffee");
         }
         coffeeAmount -= 25;
-        return new Latte(new Coffee(25), milkStorage.getMilk(75));
+        return new Drink(CoffeeType.LATTE, new Coffee(25), milkStorage.getMilk(75));
     }
 
-    private FlatWhite makeFlatWhite() {
+    private Drink makeFlatWhite() {
         if (this.coffeeAmount - 50 < 0) {
             throw new OutOfResourceException("out of coffee");
         }
         coffeeAmount -= 50;
-        return new FlatWhite(new Coffee(50), milkStorage.getMilk(100));
+        return new Drink(CoffeeType.FLAT_WHITE, new Coffee(50), milkStorage.getMilk(100));
     }
 
     @Override

@@ -1,8 +1,7 @@
 package io.inventi.coffee.machine;
 
 
-import io.inventi.coffee.drinks.FlatWhite;
-import io.inventi.coffee.drinks.Latte;
+import io.inventi.coffee.drinks.Drink;
 import io.inventi.coffee.drinks.CoffeeType;
 import org.junit.Test;
 
@@ -16,7 +15,7 @@ public class AdvancedCoffeeMachineTest {
         CoffeeMachine coffeeMachine = new AdvancedCoffeeMachine();
         coffeeMachine.addCoffee(50);
         coffeeMachine.addMilk(100);
-        FlatWhite drink = (FlatWhite) coffeeMachine.makeCoffee(CoffeeType.FLAT_WHITE);
+        Drink drink = coffeeMachine.makeCoffee(CoffeeType.FLAT_WHITE);
 
         assertEquals(drink.getType(), CoffeeType.FLAT_WHITE);
         assertEquals(drink.getCoffee().getAmount(), 50, 0);
@@ -28,7 +27,7 @@ public class AdvancedCoffeeMachineTest {
         CoffeeMachine coffeeMachine = new AdvancedCoffeeMachine();
         coffeeMachine.addCoffee(50);
         coffeeMachine.addMilk(100);
-        Latte drink = (Latte) coffeeMachine.makeCoffee(CoffeeType.LATTE);
+        Drink drink = coffeeMachine.makeCoffee(CoffeeType.LATTE);
 
         assertEquals(drink.getType(), CoffeeType.LATTE);
         assertEquals(drink.getCoffee().getAmount(), 25, 0);
