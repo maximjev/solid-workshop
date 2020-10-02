@@ -4,5 +4,6 @@ public enum CoffeeType {
     ESPRESSO,
     LATTE,
     CAPPUCCINO,
-    FLAT_WHITE
+    FLAT_WHITE,
+    BLACK_COFFEE,
 }

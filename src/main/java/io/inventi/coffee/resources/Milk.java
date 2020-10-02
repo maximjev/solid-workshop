@@ -1,13 +1,7 @@
 package io.inventi.coffee.resources;
 
-public class Milk {
-    private final double amount;
-
+public class Milk extends Resource {
     public Milk(double amount) {
-        this.amount = amount;
-    }
-
-    public double getAmount() {
-        return amount;
+        super(amount);
     }
 }

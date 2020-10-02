@@ -3,19 +3,16 @@ package io.inventi.coffee.drinks;
 import io.inventi.coffee.resources.Coffee;
 import io.inventi.coffee.resources.Milk;
 
-public class Drink {
-    private final CoffeeType type;
+// TODO maybe split Drinks to recipes?
+public abstract class Drink {
     private final Coffee coffee;
     private final Milk milk;
+    private final CoffeeType type;
 
-    public Drink(CoffeeType type, Coffee coffee, Milk milk) {
-        this.type = type;
+    protected Drink(Coffee coffee, Milk milk, CoffeeType type) {
         this.coffee = coffee;
         this.milk = milk;
-    }
-
-    public CoffeeType getType() {
-        return type;
+        this.type = type;
     }
 
     public Coffee getCoffee() {
@@ -24,5 +21,9 @@ public class Drink {
 
     public Milk getMilk() {
         return milk;
+    }
+
+    public CoffeeType getType() {
+        return type;
     }
 }
